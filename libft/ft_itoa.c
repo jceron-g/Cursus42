@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 09:30:43 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/25 13:26:15 by jceron-g         ###   ########.fr       */
+/*   Created: 2023/09/25 12:03:24 by jceron-g          #+#    #+#             */
+/*   Updated: 2023/09/25 13:02:50 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_sizenum(long int number)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (dstsize > 0)
+	if (number <= 0)
+		i++;
+	while (number != 0)
 	{
-		while (src[i] != '\0' && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		number = number / 10;
+		i++;
 	}
-	return (ft_strlen(src));
+	return (i);
 }
-/*
-int	main(void)
-{
-	char *string = "Holacaracola,quetal";
-	char buffer[19];
-	int	ret;
 
-	ret = ft_strlcpy(buffer, string, 19);
-	printf("'%s', '%s', '%d'", string, buffer, ret);
+char	*ft_itoa(int n)
+{
 }
-*/

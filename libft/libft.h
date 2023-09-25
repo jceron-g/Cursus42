@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:33:20 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/22 16:52:42 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:12:12 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+/**
+ * @brief Using malloc(3), creates a string that represent the integer
+ * value received as argument. Negative numbers must be taken in 
+ * consideration
+ * 
+ * @param n 
+ * @return The representing string of the number or NULL if 
+ * memory reservation fails. 
+ */
+char	*ft_itoa(int n);
 /**
  * @brief The memset() function writes len bytes of value c 
  * (converted to an unsigned char) to the string b.
@@ -132,12 +142,10 @@ void	ft_putnbr_fd(int n, int fd);
  */
 void	ft_putstr_fd(char *s, int fd);
 /**
- * @brief The strchr() function locates the first occurrence
-of c (converted to a char) in the string pointed
-to by s.  The terminating null character is con-
-sidered to be part of the string; therefore if c
-is '\0', the functions locate the terminating
-'\0'.
+ * @brief @brief The strchr() function locates the first occurrence of c 
+ * (converted to a char) in the string pointed to by s. The terminating 
+ * null character is considered to be part of the string; therefore if c 
+ * is '\0', the functions locate the terminating '\0'.
  * 
  * @param s 
  * @param c 
@@ -243,6 +251,16 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
  * or NULL if the character does not appear in the string. 
  */
 char	*ft_strrchr(const char *s, int c);
+/**
+ * @brief Delete all characters from string 'set' from the 
+ * begining until the end of 's1', until finding a character that
+ * doesn't belong to 'set'.
+ * 
+ * @param s1 
+ * @param set 
+ * @return The string trimmed or NULL if memory reservation fails.
+ */
+char	*ft_strtrim(char const *s1, char const *set);
 /**
  * @brief Reserve (with malloc(3)) and returns a substring of
  * main string 's'. The substring begins from index 'start' and
