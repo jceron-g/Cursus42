@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:33:20 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/25 12:12:12 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:44:40 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * if insufficient memory was available. 
  */
 char	*ft_strdup(const char *s1);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 /**
  * @brief Reserve (with malloc(3)) and returns a new string
  * made by the concatenation of 's1' and 's2'
