@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:33:20 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/25 17:44:40 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:37:48 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,18 @@ void	ft_putnbr_fd(int n, int fd);
  */
 void	ft_putstr_fd(char *s, int fd);
 /**
+ * @brief The strdup() function allocates sufficient memory
+ * for a copy of the string s1, does the copy, and
+ * returns a pointer to it.  The pointer may subsequently 
+ * be used as an argument to the function free(3).
+ * 
+ * @param s1 
+ * @return Returns a pointer to the
+ * duplicated string. It returns NULL 
+ * if insufficient memory was available. 
+ */
+char	*ft_strdup(const char *s1);
+/**
  * @brief @brief The strchr() function locates the first occurrence of c 
  * (converted to a char) in the string pointed to by s. The terminating 
  * null character is considered to be part of the string; therefore if c 
@@ -178,18 +190,27 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
  */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 /**
- * @brief The strdup() function allocates sufficient memory
- * for a copy of the string s1, does the copy, and
- * returns a pointer to it.  The pointer may subsequently 
- * be used as an argument to the function free(3).
+ * @brief A cada carácter de la string 's', aplica la función
+ * 'f' dando como parámetros el índice de cada
+ * carácter dentro de 's' y la dirección del propio
+ * carácter, que podrá modificarse si es necesario.
  * 
- * @param s1 
- * @return Returns a pointer to the
- * duplicated string. It returns NULL 
- * if insufficient memory was available. 
+ * @param s 
+ * @param f 
  */
-char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+/**
+ * @brief A cada carácter de la string ’s’, aplica la función 'f' dando como 
+ * parámetros el índice de cada carácter dentro de ’s’ y el propio carácter. 
+ * Genera una nueva string con el resultado del uso sucesivo de 'f'
+ * 
+ * 
+ * @param s 
+ * @param f 
+ * @return The created string after the correct use of 'f'
+ * on each character. Char *.
+ */
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 /**
  * @brief Reserve (with malloc(3)) and returns a new string
  * made by the concatenation of 's1' and 's2'
