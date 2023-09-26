@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: jceron-g < jceron-g@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 14:59:39 by jceron-g          #+#    #+#              #
-#    Updated: 2023/09/26 09:19:58 by jceron-g         ###   ########.fr        #
+#    Updated: 2023/09/26 18:30:29 by jceron-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		 ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c \
 		 ft_strdup.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		 ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c ft_striteri.c ft_strmapi.c \
+		 ft_split.c
 		 
 
 OBJECTS = $(SOURCE:.c=.o)

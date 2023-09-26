@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jceron-g < jceron-g@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:33:20 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/26 09:37:48 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:32:13 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ void	ft_putnbr_fd(int n, int fd);
  * @param fd 
  */
 void	ft_putstr_fd(char *s, int fd);
+char	**ft_split(char const *s, char c);
 /**
  * @brief The strdup() function allocates sufficient memory
  * for a copy of the string s1, does the copy, and
