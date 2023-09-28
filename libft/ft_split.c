@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceron-g < jceron-g@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 09:47:50 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/26 18:37:26 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:28:40 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_countletters(char const *s, char c)
+static	int	ft_countword(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -21,37 +21,51 @@ static	int	ft_countletters(char const *s, char c)
 	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i++] != c && (s[i] == c || s[i] == '\0'))
-		count++;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			count++;
+		i++;
 	}
 	return (count);
 }
 
+static	int	ft_next_del(char const *s, char c, int i)
+{
+	while (s[i] != c && s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	ft_lesscode(char **matrix, int count)
+{
+	matrix[count] = NULL;
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char		**string;
+	char		**matrix;
 	size_t		i;
-	size_t		len;
+	size_t		number_words;
+	size_t		j;
 
-	string = malloc(sizeof(char *) * (ft_countletters(s, c) + 1));
-	if (!string)
+	number_words = ft_countword(s, c);
+	matrix = (char **) malloc((number_words + 1) * sizeof(char *));
+	if (!matrix)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
+	i = ft_lesscode(matrix, number_words);
+	j = 0;
+	while (j < number_words)
 	{
-		if (s[i] != c)
-		{
-			len = 0;
-			while (s[i] && (s[i] != c))
+		while (s[i] != '\0')
+		{	
+			if (s[i] != c && s[i] != '\0')
 			{
-				len++;
-				i++;
+				matrix[j++] = ft_substr(s, i, (ft_next_del(s, c, i) - i));
+				i = ft_next_del(s, c, i);
 			}
-			string[i++] = ft_substr(s - len, 0, len);
+			else
+				i++;
 		}
-		else
-			i++;
 	}
-	string[i] = '\0';
-	return (string);	
+	return (matrix);
 }

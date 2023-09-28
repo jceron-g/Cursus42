@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 10:44:38 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/26 12:43:01 by jceron-g         ###   ########.fr       */
+/*   Created: 2023/09/28 12:46:54 by jceron-g          #+#    #+#             */
+/*   Updated: 2023/09/28 13:23:13 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
-		((unsigned char *)b)[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
+	new->next = *lst;
+	*lst = new;
 }
-/**
-int main(void)
-{
-	char str[25] = "Hola Caracola";
-
-	write(1, ft_memset(str, 122, 4 * sizeof(char)), 4);
-	write(1, memset(str, 122, 4 * sizeof(char)), 4);
-	return (0);
-}
-*/

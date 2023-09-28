@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 10:44:38 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/26 12:43:01 by jceron-g         ###   ########.fr       */
+/*   Created: 2023/09/28 11:01:02 by jceron-g          #+#    #+#             */
+/*   Updated: 2023/09/28 11:59:36 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int		size;
+	t_list	*aux_node;
 
-	i = 0;
-	while (i < len)
+	if (!lst)
+		return (0);
+	size = 1;
+	aux_node = lst;
+	while (aux_node->next)
 	{
-		((unsigned char *)b)[i] = (unsigned char)c;
-		i++;
+		aux_node = aux_node->next;
+		size++;
 	}
-	return (b);
+	return (size);
 }
-/**
-int main(void)
-{
-	char str[25] = "Hola Caracola";
-
-	write(1, ft_memset(str, 122, 4 * sizeof(char)), 4);
-	write(1, memset(str, 122, 4 * sizeof(char)), 4);
-	return (0);
-}
-*/

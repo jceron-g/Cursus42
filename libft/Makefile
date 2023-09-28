@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jceron-g < jceron-g@student.42malaga.co    +#+  +:+       +#+         #
+#    By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 14:59:39 by jceron-g          #+#    #+#              #
-#    Updated: 2023/09/26 18:30:29 by jceron-g         ###   ########.fr        #
+#    Updated: 2023/09/28 14:37:12 by jceron-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,12 @@ SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		 ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c ft_striteri.c ft_strmapi.c \
 		 ft_split.c
 		 
+SOURCE_B = ft_lstnew.c ft_lstsize.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
+			ft_lstdelone.c
 
 OBJECTS = $(SOURCE:.c=.o)
+
+OBJECTS_B = $(SOURCE_B:.c=.o)
 
 all: $(NAME)
 
@@ -31,13 +35,16 @@ $(NAME): $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-	
+
+bonus: $(OBJECTS_B)
+		ar crs $(NAME) $(OBJECTS_B)
+
 clean:
-		rm -f $(OBJECTS)
+		rm -f $(OBJECTS) $(OBJECTS_B)
 
 fclean: clean
-		rm -f $(NAME)
+		rm -f $(NAME) bonus
 		
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
