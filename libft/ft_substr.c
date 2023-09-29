@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:45:08 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/28 12:36:46 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:23:09 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (substr == NULL)
 		return (NULL);
 	i = 0;
-	while (i < j)
+	while (i < j) 
 	{
 		substr[i] = s[start];
 		i++;
