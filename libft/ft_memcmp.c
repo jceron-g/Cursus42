@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:31:19 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:20:49 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:42:45 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+int main(void)
+{
+	const void	*s1 = "Testing";
+	const void	*s2 = "Testjng";
+	size_t		n = 7;
+
+	printf("First string: %s\n", s1);
+	printf("Second string: %s\n", s2);
+	printf("Lex diff: %d\n", ft_memcmp(s1, s2, n));
+}
+*/

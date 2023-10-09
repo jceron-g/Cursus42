@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:03:24 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:20:33 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:03:42 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,13 @@ char	*ft_itoa(int n)
 		string[--size] = long_n + '0';
 	return (string);
 }
+
+/* int	main(void)
+{
+	long		n;
+
+	n = 2147483648;
+	printf("Original number: %ld\n", n);
+	printf("Number in array: %s\n", ft_itoa(n));
+}
+ */

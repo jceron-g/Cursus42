@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:46:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:21:57 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:29:43 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	int	prueba;
+
+	prueba = ft_strncmp("Hola", "HoLa", 5);
+	printf("%d", prueba);
+}
+*/

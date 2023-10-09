@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:27:50 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:25:34 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:19:06 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,14 @@ char	*ft_strrchr(const char *s, int c)
 		str = ((char *)&s[i]);
 	return ((char *)str);
 }
+/*
+int	main(void)
+{
+	char	buffer[] = "computer program";
+	char	*ptr;
+	int	ch = 'p';
+
+	ptr = ft_strrchr(buffer, ch);
+	printf("The last ocurrence of %c in '%s' is '%s'",ch, buffer, ptr);
+}
+*/

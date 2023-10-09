@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:39:11 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:21:34 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:13:19 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,12 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (0);
 }
+/*
+int	main(void)
+{
+	char	*str = "This is MY string!";
+	char	*first_M = ft_strchr(str, 'M');
+
+	printf("%s", first_M);
+}
+*/

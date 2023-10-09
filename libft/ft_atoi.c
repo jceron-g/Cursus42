@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:30:38 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/03 12:23:06 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:06:55 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,14 @@ int	ft_atoi(const char *str)
 	number *= sign;
 	return (number);
 }
+/*
+int main(void)
+{
+	char	*number;
+	int		result;
+
+	number = " 			-250";
+	result = ft_atoi(number);
+	printf("%d", result);
+}
+*/
