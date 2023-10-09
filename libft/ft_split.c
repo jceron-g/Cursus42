@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 09:47:50 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/27 16:28:40 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:24:56 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	int	ft_next_del(char const *s, char c, int i)
 	return (i);
 }
 
-char	ft_lesscode(char **matrix, int count)
+static char	ft_lesscode(char **matrix, int count)
 {
 	matrix[count] = NULL;
 	return (0);

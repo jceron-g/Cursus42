@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:33:20 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/29 11:02:17 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:53:55 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -304,14 +304,77 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+/**
+ * @brief Creates a new node using malloc(3).
+ * 
+ * @param content 
+ * @return t_list* 
+ */
 t_list	*ft_lstnew(void *content);
+/**
+ * @brief Counts the number of nodes in a list.
+ * 
+ * @param lst 
+ * @return int 
+ */
 int		ft_lstsize(t_list *lst);
+/**
+ * @brief Adds the node 'new' at the beggining of the list 'lst'
+ * 
+ * @param lst 
+ * @param new 
+ */
 void	ft_lstadd_front(t_list **lst, t_list *new);
+/**
+ * @brief Adds the node 'new' at the end of the list 'lst'
+ * 
+ * @param lst 
+ * @param new 
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new);
+/**
+ * @brief Returns the last node of the list
+ * 
+ * @param lst 
+ * @return t_list* 
+ */
 t_list	*ft_lstlast(t_list *lst);
+/**
+ * @brief Take as a parameter a node 'lst' and frees the content
+ * using the function 'del' given as a parameter.
+ * 
+ * @param lst 
+ * @param del 
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+/**
+ * @brief Deletes and frees the node 'lst' given and all 
+ * the consecutives of that node, using 'del' function and free.
+ * 
+ * @param lst 
+ * @param del 
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void*));
+/**
+ * @brief Iterates list 'lst' and applies the function 'f'
+ * in the content of each node.
+ * 
+ * @param lst 
+ * @param f 
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+/**
+ * @brief Iterates the list 'lst' and applies the function
+ * 'f' to the content of each node. Creates a list resulting
+ * of the correct and successive application of the function 'f'
+ * on each node. The function 'del' is used to remove the contents
+ * of a node if necessary.
+ * 
+ * @param lst 
+ * @param f 
+ * @param del 
+ * @return t_list* 
+ */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

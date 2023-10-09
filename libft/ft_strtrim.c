@@ -6,13 +6,13 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 14:31:19 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/27 15:45:21 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:18:31 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_position(char c, char const *set)
+static int	ft_check_to_del(char c, char const *set)
 {
 	size_t	i;
 
@@ -34,10 +34,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*final_string;
 
 	start = 0;
-	while (s1[start] && ft_position(s1[start], set))
+	while (s1[start] && ft_check_to_del(s1[start], set))
 		start++;
 	len = ft_strlen(s1);
-	while (len > start && ft_position(s1[len - 1], set))
+	while (len > start && ft_check_to_del(s1[len - 1], set))
 		len--;
 	final_string = (char *)malloc((len - start + 1) * sizeof(char));
 	if (!final_string)

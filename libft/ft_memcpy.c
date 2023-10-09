@@ -30,3 +30,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+/*int main(void)
+{
+	char dst[] = "Original";
+	const void	*src = "Copied";
+	size_t	n = 6;
+
+	printf("%s\n", (char *)ft_memcpy(dst+2, dst, n));
+	 
+}*/

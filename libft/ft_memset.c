@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:44:38 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/26 12:43:01 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:18:09 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int main(void)
 
 	write(1, ft_memset(str, 122, 4 * sizeof(char)), 4);
 	write(1, memset(str, 122, 4 * sizeof(char)), 4);
-	return (0);
+	
 }
 */

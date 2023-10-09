@@ -6,13 +6,13 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:03:24 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/25 17:28:19 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:29:01 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sizenum(long number)
+static int	ft_sizenum(long number)
 {
 	int	i;
 
@@ -58,3 +58,13 @@ char	*ft_itoa(int n)
 		string[--size] = long_n + '0';
 	return (string);
 }
+/*
+int	main(void)
+{
+	int		n;
+
+	n = 120;
+	printf("Original number: %d\n", n);
+	printf("Number in array: %s\n", ft_itoa(n));
+}
+*/
