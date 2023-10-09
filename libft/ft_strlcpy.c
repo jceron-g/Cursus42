@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 09:30:43 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/09/25 13:26:15 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:21:43 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (ft_strlen(src));
 }
-/*
-int	main(void)
-{
-	char *string = "Holacaracola,quetal";
-	char buffer[19];
-	int	ret;
-
-	ret = ft_strlcpy(buffer, string, 19);
-	printf("'%s', '%s', '%d'", string, buffer, ret);
-}
-*/
