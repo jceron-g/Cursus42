@@ -6,11 +6,25 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 09:47:50 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/02 11:24:56 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:22:48 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
 
 static	int	ft_countword(char const *s, char c)
 {
@@ -54,18 +68,17 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = ft_lesscode(matrix, number_words);
 	j = 0;
-	while (j < number_words)
-	{
-		while (s[i] != '\0')
-		{	
-			if (s[i] != c && s[i] != '\0')
-			{
-				matrix[j++] = ft_substr(s, i, (ft_next_del(s, c, i) - i));
-				i = ft_next_del(s, c, i);
-			}
-			else
-				i++;
+	while (j < number_words && s[i])
+	{	
+		if (s[i] != c && s[i] != '\0')
+		{
+			matrix[j++] = ft_substr(s, i, (ft_next_del(s, c, i) - i));
+			if (!matrix[j - 1])
+				return (ft_free(matrix));
+			i = ft_next_del(s, c, i);
 		}
+		else
+			i++;
 	}
 	return (matrix);
 }
