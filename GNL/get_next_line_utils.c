@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:20:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/13 12:52:26 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/16 08:44:39 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		j;
 	char	*string;
 
-	if (!s1)
-	{
-		s1 = malloc(1 * sizeof(char));
-		s1[0] = '\0';
-	}
 	string = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!string)
 		return (NULL);

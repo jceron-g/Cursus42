@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:25 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/13 12:58:55 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:18:07 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include <stdio.h>
 
 char	*get_next_line(int fd);
-char	*ft_read_line(int fd, char *accumulative_line);
+char	*ft_read_line(int fd, char *aux_line);
+char	*ft_get_line(char *aux_line);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *str);
