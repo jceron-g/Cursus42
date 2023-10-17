@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:51 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/17 11:38:33 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:37:09 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ char	*ft_get_line(char *aux_line)
 		return (NULL);
 	while (aux_line[i] != '\0' && aux_line[i] != '\n')
 		i++;
+	i++;
 	get_line = malloc(i + 1);
 	if (!get_line)
 		return (NULL);
+	get_line[i] = '\0';
 	i = 0;
 	while (aux_line[i] != '\0' && aux_line[i] != '\n')
 	{
@@ -66,17 +68,17 @@ char	*ft_get_line(char *aux_line)
 char	*ft_clean_line(char *aux_line)
 {
 	int		i;
-	int 	j;
+	int		j;
 	char	*new_aux_line;
-	
+
 	i = 0;
-	while (aux_line[i] != '\0' && aux_line[i] != '\n')
-		i++;
 	if (!aux_line)
 	{
 		free(aux_line);
 		return (NULL);
 	}
+	while (aux_line[i] != '\0' && aux_line[i] != '\n')
+		i++;
 	new_aux_line = malloc((ft_strlen(aux_line) - i) + 1);
 	if (!new_aux_line)
 		return (NULL);
@@ -89,21 +91,20 @@ char	*ft_clean_line(char *aux_line)
 		j++;
 	}
 	free(aux_line);
-	return (new_aux_line);	
+	return (new_aux_line);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*aux_line;
-	char		*buffer;
+	char		*final_line;
 
-	if (fd < 0 && BUFFER_SIZE < 1)
+	if (fd < 0 && BUFFER_SIZE < 1 && read(fd, 0, 0) < 0)
 		return (NULL);
 	aux_line = ft_read_line(fd, aux_line);
-	if (!aux_line)
+	if (ft_strlen(aux_line) == 0)
 		return (NULL);
-	buffer = ft_get_line(aux_line);
+	final_line = ft_get_line(aux_line);
 	aux_line = ft_clean_line(aux_line);
-	return (buffer);
+	return (final_line);
 }
-  

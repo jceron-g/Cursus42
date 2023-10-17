@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:25 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/17 10:55:02 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:54:27 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 2
 # endif
 
 # include <string.h>

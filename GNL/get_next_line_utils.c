@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:20:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/16 08:44:39 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:12:26 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		string[i++] = s2[j++];
 	}
 	string[i] = '\0';
+	free(s1);
 	return (string);
 }
