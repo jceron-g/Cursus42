@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:20:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/24 13:11:01 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:50:48 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strjoin(char *aux_line, char *buffer, int read_bytes)
 
 	if (!aux_line)
 		aux_line = ft_calloc(1, 1);
-	str = malloc((ft_strlen(aux_line) + ft_strlen(buffer) + 1) * sizeof(char));
+	str = malloc((ft_strlen(aux_line) + ft_strlen(buffer) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = 0;

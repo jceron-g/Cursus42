@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:51 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/25 12:13:53 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:58:37 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,20 @@ char	*ft_clean_line(char *aux_line)
 	char	*new_aux_line;
 
 	i = 0;
-	if (!aux_line[i])
+	while (aux_line[i] != '\0' && aux_line[i] != '\n')
+		i++;
+	if (!aux_line)
 	{
 		free(aux_line);
 		return (NULL);
 	}
-	while (aux_line[i] != '\0' && aux_line[i] != '\n')
-		i++;
 	new_aux_line = malloc((ft_strlen(aux_line) - i) + 2);
 	if (!new_aux_line)
 		return (NULL);
 	i++;
 	j = 0;
 	while (aux_line[i] != '\0')
-	{
-		new_aux_line[j] = aux_line[i];
-		i++;
-		j++;
-	}
+		new_aux_line[j++] = aux_line[i++];
 	new_aux_line[j] = '\0';
 	free(aux_line);
 	return (new_aux_line);
