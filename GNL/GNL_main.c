@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:18:54 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/17 13:21:38 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:11:40 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	leaks(void)
 {
-	system("leaks test");
+	system("leaks a.out");
 }
 
 int	main(void)
@@ -27,7 +27,7 @@ int	main(void)
 	atexit(leaks);
 	i = 0;
 	fd = open("./test.txt", 0);
-	while (i < 4)
+	while (i < 3)
 	{
 		line = get_next_line(fd);
 		printf("%s", line);

@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:51 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/17 13:37:09 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:13:53 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,23 @@ char	*ft_read_line(int fd, char *aux_line)
 	char	*buffer;
 	int		read_bytes;
 
-	if (!aux_line)
-	{
-		aux_line = malloc(1 * sizeof(char));
-		aux_line[0] = '\0';
-	}
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (NULL);
 	read_bytes = 1;
-	while (!ft_strchr(aux_line, '\n') && read_bytes > 0)
+	while (!ft_strchr(buffer, '\n') && read_bytes > 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
-		buffer[read_bytes] = '\0';
-		aux_line = ft_strjoin(aux_line, buffer);
+		if (read_bytes == -1)
+		{
+			free(aux_line);
+			return (NULL);
+		}
+		aux_line = ft_strjoin(aux_line, buffer, read_bytes);
 	}
 	free(buffer);
+	if (ft_strlen(aux_line) == 0)
+		return (free(aux_line), NULL);
 	return (aux_line);
 }
 
@@ -72,14 +73,14 @@ char	*ft_clean_line(char *aux_line)
 	char	*new_aux_line;
 
 	i = 0;
-	if (!aux_line)
+	if (!aux_line[i])
 	{
 		free(aux_line);
 		return (NULL);
 	}
 	while (aux_line[i] != '\0' && aux_line[i] != '\n')
 		i++;
-	new_aux_line = malloc((ft_strlen(aux_line) - i) + 1);
+	new_aux_line = malloc((ft_strlen(aux_line) - i) + 2);
 	if (!new_aux_line)
 		return (NULL);
 	i++;
@@ -90,6 +91,7 @@ char	*ft_clean_line(char *aux_line)
 		i++;
 		j++;
 	}
+	new_aux_line[j] = '\0';
 	free(aux_line);
 	return (new_aux_line);
 }
@@ -99,10 +101,14 @@ char	*get_next_line(int fd)
 	static char	*aux_line;
 	char		*final_line;
 
-	if (fd < 0 && BUFFER_SIZE < 1 && read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
+	{
+		free(aux_line);
+		aux_line = NULL;
 		return (NULL);
+	}
 	aux_line = ft_read_line(fd, aux_line);
-	if (ft_strlen(aux_line) == 0)
+	if (!aux_line)
 		return (NULL);
 	final_line = ft_get_line(aux_line);
 	aux_line = ft_clean_line(aux_line);

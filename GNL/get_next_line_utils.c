@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:20:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/17 13:12:26 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:11:01 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
@@ -28,39 +30,56 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *aux_line, char *buffer, int read_bytes)
 {
+	char	*str;
 	int		i;
 	int		j;
-	char	*string;
 
-	string = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2)) + 1));
-	if (!string)
+	if (!aux_line)
+		aux_line = ft_calloc(1, 1);
+	str = malloc((ft_strlen(aux_line) + ft_strlen(buffer) + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (s1[i] != '\0')
+	j = 0;
+	while (aux_line[i])
+		str[j++] = aux_line[i++];
+	i = 0;
+	while (i < read_bytes)
+		str[j++] = buffer[i++];
+	str[j] = '\0';
+	free (aux_line);
+	return (str);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	len = size * count;
+	ptr = malloc(len);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		string[i] = s1[i];
+		((unsigned char *)ptr)[i] = '\0';
 		i++;
 	}
-	j = 0;
-	while (s2[j] != '\0')
-	{
-		string[i++] = s2[j++];
-	}
-	string[i] = '\0';
-	free(s1);
-	return (string);
+	return (ptr);
 }
