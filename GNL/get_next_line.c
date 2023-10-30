@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:19:51 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/26 12:41:17 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:57:55 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_read_line(int fd, char *aux_line)
 {
 	char	*buffer;
 	int		read_bytes;
-	char	*save_static;
 
 	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
@@ -30,8 +29,7 @@ char	*ft_read_line(int fd, char *aux_line)
 			free(aux_line);
 			return (NULL);
 		}
-		save_static = aux_line;
-		aux_line = ft_strjoin(save_static, buffer, read_bytes);
+		aux_line = ft_strjoin(aux_line, buffer, read_bytes);
 	}
 	free(buffer);
 	if (ft_strlen(aux_line) == 0)
