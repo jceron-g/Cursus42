@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:18:54 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/30 11:54:03 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:45:28 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,10 @@ int	main(void)
 	char	*line;
 	int		i;
 
-	//atexit(leaks);
+	atexit(leaks);
 	i = 0;
-	fd = open("./42_no_nl.txt", 0);
-	while (i < 1)
-	{
-		line = get_next_line(fd);
-		free(line);
-		i++;
-	}
+	fd = open(".test.txt", 0);
+	line = get_next_line(fd);
 	printf("%s", line);
+	free(line);
 }

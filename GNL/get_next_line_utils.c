@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:20:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/10/30 11:30:05 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/10/31 09:51:57 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ char	*ft_strjoin(char *aux_line, char *buffer, int read_bytes)
 
 	if (!aux_line)
 		aux_line = ft_calloc(1, 1);
-	str = malloc((ft_strlen(aux_line) + ft_strlen(buffer) + 1));
-	if (str == NULL)
+	str = malloc((ft_strlen(aux_line) + read_bytes + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (aux_line[i])
-		str[j++] = aux_line[i++];
-	i = 0;
-	while (i < read_bytes)
-		str[j++] = buffer[i++];
-	str[j] = '\0';
+	while (aux_line[j])
+		str[i++] = aux_line[j++];
+	j = 0;
+	while (j < read_bytes)
+		str[i++] = buffer[j++];
+	str[i] = '\0';
 	free (aux_line);
 	return (str);
 }
@@ -74,7 +74,7 @@ void	*ft_calloc(size_t count, size_t size)
 	i = 0;
 	len = size * count;
 	ptr = malloc(len);
-	if (ptr == NULL)
+	if (ptr == NULL || ptr < 0)
 		return (NULL);
 	while (i < len)
 	{
