@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 09:45:44 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/12/12 12:57:44 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:13:53 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_print_format(char const *str, va_list ap)
 		printed_chars += ft_putstr(va_arg(ap, char *));
 	else if (str[i] == 'd' || str[i] == 'i')
 		printed_chars += ft_putdec(va_arg(ap, int));
+	else if (str[i] == 'u')
+		printed_chars = ft_printuint(va_arg(ap, unsigned int));
 	else if (str[i] == 'x' || str[i] == 'X')
 		printed_chars += ft_puthex(va_arg(ap, unsigned long), str[i]);
 	else if (str[i] == 'p')
