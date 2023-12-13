@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 09:45:44 by jceron-g          #+#    #+#             */
-/*   Updated: 2023/12/12 13:13:53 by jceron-g         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:19:25 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	printed_chars = 0;
 	va_start(ap, format);
+	if (write(1, "", 0) == -1)
+		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
