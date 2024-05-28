@@ -4,3 +4,6 @@
 [submodule "Second Circle/push_swap"]
 	path = Second Circle/push_swap
 	url = https://github.com/jceron-g/push_swap
+[submodule "Second Circle/fract-ol"]
+	path = Second Circle/fract-ol
+	url = https://github.com/jceron-g/fractol
