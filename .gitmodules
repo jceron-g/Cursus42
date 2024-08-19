@@ -7,3 +7,6 @@
 [submodule "Second Circle/fract-ol"]
 	path = Second Circle/fract-ol
 	url = https://github.com/jceron-g/fractol
+[submodule "Third Circle/Philosophers"]
+	path = Third Circle/Philosophers
+	url = https://github.com/jceron-g/Philosophers
