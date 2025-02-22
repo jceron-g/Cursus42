@@ -71,5 +71,5 @@ This repository follows **42’s academic policies**, so please refrain from cop
 
 Feel free to explore and reach out if you have any questions!
 
-**Author:** [Your Name](https://github.com/jceron-g)
+**Author:** [José Antonio Cerón](https://github.com/jceron-g)
 
